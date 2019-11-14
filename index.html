@@ -1,0 +1,124 @@
+//index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>情人节快乐</title>
+    <style>
+      img {
+        width: 100%;
+      }
+      body {
+        min-height: 100vh;
+        background: linear-gradient(#1d2b64, #f8cdda);
+        color: #fff;
+        font-family: PingFangSC-Regular;
+        padding: 0;
+        margin: 0;
+      }
+      .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        overflow: hidden;
+      }
+      .shadow {
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        filter: blur(50px);
+      }
+      .btn-group {
+        display: flex;
+        margin-top: 40px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .btn-group div {
+        flex: 1;
+        text-align: center;
+      }
+      .sure {
+        padding: 14px 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 127, 87, 1) 0%,
+          rgba(221, 40, 39, 1) 100%
+        );
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
+      .cancel {
+        padding: 14px 0;
+        background: #eee;
+        color: #333;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      marquee {
+        background: none;
+      }
+      @media screen and (min-width: 800px) {
+        .container {
+          width: 350px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div style="padding: 12px">
+        <div
+          style="position: relative; display: flex; align-items: center; margin-bottom: 10px"
+        >
+          <img src="666.jpg" alt="" class="avatar" />
+          <img src="666.jpg" alt="" class="avatar shadow" />
+          <span style="margin-left: 10px" id="name">小皮咖</span>
+        </div>
+        <marquee scrolldelay="0" scrollamount="20">
+          <img src="1.png" />
+          <img src="2.png" />
+          <img src="3.png" />
+          <img src="4.png" />
+          <img src="5.png" />
+          <img src="6.png" />
+          <img src="7.png" />
+        </marquee>
+        <audio
+          src="http://att.chinauui.com/day_181211/20181211_8480d0323003455bd6de8CcQ3Eq28Mm9.mp3"
+          autoplay
+          loop
+        >
+          您的浏览器不支持 audio 标签。
+        </audio>
+        <div class="btn-group">
+          <div class="sure" onclick="alert('晚上好\\(^o^)/~')">
+            确定
+          </div>
+          <div class="cancel" onclick="alert('取消无效，请重新选择')">取消</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+          return r[2];
+        }
+        return null;
+      }
+      window.onload = function() {
+        let name = getQueryString("name");
+        document.getElementById("name").innerHTML = decodeURIComponent(
+          decodeURIComponent(name)
+        );
+      };
+    </script>
+  </body>
+</html>
+
